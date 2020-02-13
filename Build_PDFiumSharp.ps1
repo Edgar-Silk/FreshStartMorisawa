@@ -16,6 +16,9 @@ $CurrentPath=(Get-Location).Path
 Write-Host "Architecture: " $Arch
 Write-Host "Directory to Build: " $CurrentPath
 
+Write-Host "Restore NuGet Packages - NUnit3"
+dotnet restore 
+
 #Locate Visual Studio
 function buildVStudio{
     param(
@@ -79,7 +82,7 @@ if (Test-Path -Path $OUT_DLL_DIR'/pdfium.dll') {
 Write-Host "Now making Nuget Package..." -ForegroundColor Blue
 
 Set-Location $CurrentPath"/"$Project_Name
-nuget pack PDFiumSharp.csproj -properties "Configuration=Release;Platform=$Arch"
+nuget pack "$Project_Name.csproj" -properties "Configuration=Release;Platform=$Arch"
 
 #set directory for nuget package
 $OUT_NUGET_DIR = $CurrentPath+'/NuGet/'+$Arch
