@@ -80,6 +80,22 @@ else {
     Set-Location $Lib_Dir
 }
 
+if ([System.IO.Directory]::Exists( $test_dir )) {
+    #Set-Location $Lib_Dir
+}
+else {
+    New-Item -Path $test_dir -ItemType Directory
+    #Set-Location $Lib_Dir
+}
+
+if ([System.IO.Directory]::Exists( $debug_test_dir )) {
+    #Set-Location $Lib_Dir
+}
+else {
+    New-Item -Path $debug_test_dir -ItemType Directory
+    #Set-Location $Lib_Dir
+}
+
 if (Test-Path -Path $OUT_DLL_DIR'/pdfium.dll') {
     Copy-Item $OUT_DLL_DIR'/pdfium.dll' -Destination $Lib_Dir
     Copy-Item $OUT_DLL_DIR'/pdfium.dll' -Destination $test_dir
