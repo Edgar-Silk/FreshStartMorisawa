@@ -1,0 +1,11 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+
+before_build:
+    - ps: ./Build_PDFium.ps1 
+
+build_script:
+    - ps: ./Build_PDFiumSharp.ps1 
+
+test_script:
+    - ps: ./The_Test.ps1 
