@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PDFiumSharp.Test": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "JsonFilePath": "C:/Users/KINU04/Desktop/AllAckahProjs_2019/FreshStartMorisawa/testparams.json"
+      }
+    }
+  }
+}
