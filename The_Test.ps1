@@ -115,11 +115,12 @@ Write-Host "start dotnet test..." -foregroundcolor green
  $a = Get-Content $JsonFilePath | ConvertFrom-Json
  $a.pathToFile=$pathToTestPDF
  $a | ConvertTo-Json | set-content $JsonFilePath
- #($env:JsonFilePath=$JsonFilePath) | 
+ ($env:JsonFilePath=$JsonFilePath) | 
  dotnet test #"bin/$Arch/Release/netcoreapp2.1/$Project_Name.dll" 
 
 
-
+ Write-Host "Json File Path : "$env:JsonFilePath
 Set-Location $BuildDir
+
 
 ls
